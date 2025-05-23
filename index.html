@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iframe Link Loader</title>
+  <style>
+    #link-container a {
+      margin-right: 10px;
+      cursor: pointer;
+      text-decoration: underline;
+      color: blue;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="link-container"></div>
+  <iframe id="viewer" src=""></iframe>
+
+  <script>
+    const links = [
+      "https://apapu.shadowshark.ipv64.net",
+      "https://app.kagakurepoto.darui.ipv64.net",
+      "https://eua.shadowshark.ipv64.net",
+      "https://pertel.kage4.any.ipv64.net",
+      "https://underethesea.shadowshark.ipv64.net"
+    ];
+
+    const container = document.getElementById('link-container');
+    const iframe = document.getElementById('viewer');
+
+    links.forEach((url, index) => {
+      const a = document.createElement('a');
+      a.textContent = `Link ${index + 1}`;
+      a.onclick = (e) => {
+        e.preventDefault();
+        iframe.src = url;
+      };
+      container.appendChild(a);
+    });
+  </script>
+
+</body>
+</html>
